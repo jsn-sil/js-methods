@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cofre Digital</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .cofre {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            gap: 5px;
+            padding: 10px;
+        }
+
+        .quadrado {
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .quadrado.clicked {
+            background-color: #4CAF50; /* verde quando marcado */
+        }
+
+        .quadrado:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cofre" id="cofre"></div>
+
+    <script>
+        // Cria os quadrados de 1 a 100
+        const cofreElement = document.getElementById('cofre');
+        for (let i = 1; i <= 100; i++) {
+            const quadrado = document.createElement('div');
+            quadrado.classList.add('quadrado');
+            quadrado.innerText = i;
+            
+            // Adiciona o evento de clique para marcar o quadrado
+            quadrado.addEventListener('click', () => {
+                quadrado.classList.toggle('clicked');
+            });
+
+            cofreElement.appendChild(quadrado);
+        }
+    </script>
+
+</body>
+</html>
